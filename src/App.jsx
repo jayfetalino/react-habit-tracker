@@ -4,6 +4,7 @@
 import { useLocalStorageState } from "./hooks/useLocalStorageState";
 import { getTodayKey } from "./utils/dates";
 import HabitForm from "./components/HabitForm";
+import HabitList from "./components/HabitList";
 
 function App() {
   const [habits, setHabits] = useLocalStorageState("habits", []);
@@ -16,13 +17,14 @@ function App() {
       completions: [],
     };
 
-    setHabits([...habits, newHabits]);
+    setHabits([...habits, newHabit]);
   }
 
   return (
     <main>
       <h1>Habit Tracker</h1>
       <HabitForm onAddhabit={addHabits} />
+      <HabitList habits={habits} />
     </main>
   );
 }
