@@ -21,18 +21,22 @@ function App() {
   }
 
   function deleteHabit(id) {
-  setHabits(habits.filter((habit) => habit.id !== id));
-}
+    setHabits(habits.filter((habit) => habit.id !== id));
+  }
 
+  const hasHabits = habits.length > 0;
 
   return (
     <main>
       <h1>Habit Tracker</h1>
       <HabitForm onAddhabit={addHabits} />
-      <HabitList habits={habits} onDeleteHabit={deleteHabit} />
+      {hasHabits ? (
+        <HabitList habits={habits} onDeleteHabit={deleteHabit} />
+      ) : (
+        <p>No habits yet. Add your first habit above.</p>
+      )}
     </main>
   );
 }
-
 
 export default App;
