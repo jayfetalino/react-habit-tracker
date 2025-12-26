@@ -1,11 +1,17 @@
 // HabitList: 
 // Responsible for displaying a list of habits.
 
-function HabitList({ habits }) {
+import HabitItem from "./HabitItem";
+
+function HabitList({ habits, onDeleteHabit }) {
     return (
         <ul>
             {habits.map((habit) => (
-                <li key={habit.id}>{habit.name}</li>
+                <HabitItem
+                key={habit.id}
+                habit={habit}
+                onDeleteHabit={onDeleteHabit}
+                />
             ))}
         </ul>
     );

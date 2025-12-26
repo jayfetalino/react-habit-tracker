@@ -20,13 +20,19 @@ function App() {
     setHabits([...habits, newHabit]);
   }
 
+  function deleteHabit(id) {
+  setHabits(habits.filter((habit) => habit.id !== id));
+}
+
+
   return (
     <main>
       <h1>Habit Tracker</h1>
       <HabitForm onAddhabit={addHabits} />
-      <HabitList habits={habits} />
+      <HabitList habits={habits} onDeleteHabit={deleteHabit} />
     </main>
   );
 }
+
 
 export default App;
